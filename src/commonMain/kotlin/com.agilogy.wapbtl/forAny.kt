@@ -12,3 +12,9 @@ fun <A> forAny(r: Arb<A>, property: (A) -> Boolean) {
             throw PropertyFailedException(attemptNumber, sample)
     }
 }
+
+fun <A, B> forAny(a: Arb<A>, b: Arb<B>, property: (A, B) -> Boolean) =
+    forAny(Arb.pair(a, b)){ (a, b) -> property(a,b) }
+
+fun <A, B, C> forAny(a: Arb<A>, b: Arb<B>, c: Arb<C>, property: (A, B, C) -> Boolean) =
+    forAny(Arb.triple(a, b, c)){ (a, b, c) -> property(a,b, c) }

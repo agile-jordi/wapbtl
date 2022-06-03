@@ -18,4 +18,10 @@ class ForAnyIntTest {
         val failedSample = failure.sample as Int
         assertFalse { property(failedSample) }
     }
+
+    @Test
+    fun testSumCommutativity() {
+        forAny(Arb.pair(Arb.int, Arb.int)){ (a, b) -> a + b == b + a }
+        forAny(Arb.int, Arb.int){ a, b -> a + b == b + a }
+    }
 }
