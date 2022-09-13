@@ -18,7 +18,7 @@ class ForAnyIntTest {
     fun testDoubleIsGreater() {
         val property: (Int) -> Boolean =  { i -> i + i >= i }
         val failure = assertFailsWith<PropertyFailedException> {
-            forAny(Arb.int, property)
+            forAny(Arb.int, property = property)
         }
         val failedSample = failure.sample as Int
         assertFalse { property(failedSample) }
