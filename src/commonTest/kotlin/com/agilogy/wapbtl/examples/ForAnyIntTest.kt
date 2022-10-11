@@ -1,5 +1,10 @@
-package com.agilogy.wapbtl
+package com.agilogy.wapbtl.examples
 
+import com.agilogy.wapbtl.Arb
+import com.agilogy.wapbtl.PropertyFailedException
+import com.agilogy.wapbtl.forAny
+import com.agilogy.wapbtl.int
+import com.agilogy.wapbtl.pair
 import kotlin.test.Test
 import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse

@@ -1,5 +1,9 @@
-package com.agilogy.wapbtl
+package com.agilogy.wapbtl.examples
 
+import com.agilogy.wapbtl.Arb
+import com.agilogy.wapbtl.forAny
+import com.agilogy.wapbtl.int
+import com.agilogy.wapbtl.map
 import kotlin.test.Test
 
 enum class DayOfWeek {
