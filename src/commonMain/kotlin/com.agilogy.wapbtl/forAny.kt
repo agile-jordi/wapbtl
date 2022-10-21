@@ -6,7 +6,7 @@ class PropertyFailedException(val attempt: Int, val seed: Long, val sample: Any?
     "Property failed at attempt $attempt with sample $sample.\nSeed: $seed"
 )
 
-fun <A> forAny(r: Arb<A>, seed: Long? = null, property: (A) -> Boolean,) {
+fun <A> forAny(r: Arb<A>, seed: Long? = null, property: (A) -> Boolean) {
     fun test(currentSeed: Long, attemptNumber: Int) {
         val sample = r.generate(Random(currentSeed))
         val result = property(sample)
@@ -24,7 +24,7 @@ fun <A> forAny(r: Arb<A>, seed: Long? = null, property: (A) -> Boolean,) {
 }
 
 fun <A, B> forAny(a: Arb<A>, b: Arb<B>, seed: Long? = null, property: (A, B) -> Boolean): Unit =
-    forAny(Arb.product2(a, b, property), seed){ it }
+    forAny(Arb.product2(a, b, property), seed) { it }
 
 fun <A, B, C> forAny(a: Arb<A>, b: Arb<B>, c: Arb<C>, seed: Long? = null, property: (A, B, C) -> Boolean) =
     forAny(Arb.product3(a, b, c, property), seed) { it }
