@@ -19,7 +19,7 @@ class ForAnyIntTest {
 
     @Test
     fun testAssociativity() {
-        forAny(Arb.int, Arb.int, Arb.int) { a, b, c -> (a + b) + c == a + (b + c) }
+        forAny(Arb.int, Arb.int, Arb.int) { a, b, c -> (a + b) + c == a + (b + c + 1) }
     }
 
 }

@@ -24,7 +24,7 @@ fun <A> forAny(r: Arb<A>, seed: Long? = null, property: (A) -> Boolean) {
 }
 
 fun <A, B> forAny(a: Arb<A>, b: Arb<B>, seed: Long? = null, property: (A, B) -> Boolean): Unit =
-    forAny(Arb.product2(a, b, property), seed) { it }
+    forAny(Arb.pair(a, b), seed) { (a, b) -> property(a, b) }
 
 fun <A, B, C> forAny(a: Arb<A>, b: Arb<B>, c: Arb<C>, seed: Long? = null, property: (A, B, C) -> Boolean) =
-    forAny(Arb.product3(a, b, c, property), seed) { it }
+    forAny(Arb.triple(a, b, c), seed) { (a, b, c) -> property(a, b, c) }
