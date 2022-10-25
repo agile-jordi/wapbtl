@@ -1,43 +1,28 @@
 package com.agilogy.wapbtl
 
-import kotlin.random.Random
 import kotlin.random.nextInt
 import kotlin.random.nextLong
 import kotlin.random.nextUInt
 import kotlin.random.nextULong
 
 val Arb.Companion.int: Arb<Int>
-    get() = object : Arb<Int> {
-        override fun generate(random: Random): Int = random.nextInt()
-    }
+    get() = Arb { random -> random.nextInt() }
 
-fun Arb.Companion.int(range: IntRange): Arb<Int> = object : Arb<Int> {
-    override fun generate(random: Random): Int = random.nextInt(range)
-}
+fun Arb.Companion.int(range: IntRange): Arb<Int> =
+    Arb { random -> random.nextInt(range) }
 
 val Arb.Companion.uint: Arb<UInt>
-    get() = object : Arb<UInt> {
-        override fun generate(random: Random): UInt = random.nextUInt()
-    }
+    get() = Arb { random -> random.nextUInt() }
 
-fun Arb.Companion.uint(range: UIntRange): Arb<UInt> = object : Arb<UInt> {
-    override fun generate(random: Random): UInt = random.nextUInt(range)
-}
+fun Arb.Companion.uint(range: UIntRange): Arb<UInt> =
+    Arb { random -> random.nextUInt(range) }
 
 val Arb.Companion.long: Arb<Long>
-    get() = object : Arb<Long> {
-        override fun generate(random: Random): Long = random.nextLong()
-    }
+    get() = Arb { random -> random.nextLong() }
 
-fun Arb.Companion.long(range: LongRange): Arb<Long> = object : Arb<Long> {
-    override fun generate(random: Random): Long = random.nextLong(range)
-}
+fun Arb.Companion.long(range: LongRange): Arb<Long> = Arb { random -> random.nextLong(range) }
 
 val Arb.Companion.ulong: Arb<ULong>
-    get() = object : Arb<ULong> {
-        override fun generate(random: Random): ULong = random.nextULong()
-    }
+    get() = Arb { random -> random.nextULong() }
 
-fun Arb.Companion.ulong(range: ULongRange): Arb<ULong> = object : Arb<ULong> {
-    override fun generate(random: Random): ULong = random.nextULong(range)
-}
+fun Arb.Companion.ulong(range: ULongRange): Arb<ULong> = Arb { random -> random.nextULong(range) }
